@@ -1,11 +1,5 @@
 🔍 Crime Data Analysis using Hadoop & Interactive Dashboard
 
-![Status](https://img.shields.io/badge/Project-Completed-brightgreen)
-![Tech](https://img.shields.io/badge/Hadoop-BigData-blue)
-![Frontend](https://img.shields.io/badge/Leaflet-InteractiveMap-yellow)
-![Visualization](https://img.shields.io/badge/Chart.js-Visualizations-red)
-
----
 
 📑 Table of Contents
 
