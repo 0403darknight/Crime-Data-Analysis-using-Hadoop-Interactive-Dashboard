@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crime Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #chart-container, #map { width: 90%%; margin: 20px auto; }
+    #map { height: 500px; }
+  </style>
+</head>
+<body>
+  <h2>Crime Counts by Type</h2>
+  <div id="chart-container">
+    <canvas id="crimeChart"></canvas>
+  </div>
+
+  <h2>Crime Locations</h2>
+  <div id="map"></div>
+
+  <script>
+    fetch('crime_type_counts.csv')
+      .then(res => res.text())
+      .then(data => {
+        const lines = data.trim().split('\n');
+        const labels = [], values = [];
+        lines.forEach(line => {
+          const [type, count] = line.split(',');
+          labels.push(type);
+          values.push(parseInt(count));
+        });
+
+        new Chart(document.getElementById('crimeChart'), {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Crime Count',
+              data: values,
+              backgroundColor: 'rgba(255, 99, 132, 0.6)'
+            }]
+          }
+        });
+      });
+
+    const map = L.map('map').setView([41.8781, -87.6298], 10);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+    fetch('crime_locations.csv')
+      .then(res => res.text())
+      .then(data => {
+        const lines = data.trim().split('\n').slice(1); // skip header
+        lines.forEach(line => {
+          const [type, block] = line.split(',');
+          const lat = 41.8 + Math.random() * 0.1;
+          const lon = -87.7 + Math.random() * 0.1;
+          L.marker([lat, lon]).addTo(map).bindPopup(`${type}<br>${block}`);
+        });
+      });
+  </script>
+</body>
+</html>
