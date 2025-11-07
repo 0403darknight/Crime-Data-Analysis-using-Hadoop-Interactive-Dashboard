@@ -16,7 +16,7 @@
 
 📘 Project Overview
 
-A powerful **crime analytics platform** that processes large-scale crime datasets using **Hadoop MapReduce** and visualizes insights using a **web dashboard** with charts and maps.
+A powerful Crime analytics platform that processes large-scale crime datasets using Hadoop MapReduce and visualizes insights using a web dashboard with charts and maps.
 
 This project enables:
 ✅ Crime pattern analysis  
@@ -27,10 +27,10 @@ This project enables:
 
 🎯 Key Features
 
-- ✅ **Hadoop MapReduce** processing for large crime datasets  
+- ✅ Hadoop MapReduce processing for large crime datasets  
 - ✅ Crime frequency analysis by type and location  
-- ✅ **Interactive Map** showing crime hotspots  
-- ✅ Modern dashboard using **Chart.js** & **Leaflet.js**  
+- ✅ Interactive Map showing crime hotspots  
+- ✅ Modern dashboard using Chart.js & Leaflet.js  
 - ✅ Scalable data pipeline  
 - ✅ Clean UI for report visualization  
 
